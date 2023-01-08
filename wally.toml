@@ -1,0 +1,10 @@
+[package]
+name = "xhayper/roblox-luau-type-utility"
+description = ""
+version = "1.0.0"
+license = "ISC"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+include = ["lib", "default.project.json", "LICENSE"]
+
+[dependencies]
