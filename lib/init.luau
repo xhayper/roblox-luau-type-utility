@@ -3,34 +3,34 @@
 --[[--
 An object that runs connected functions upon a specific occurrence.
 
-[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptSignal)
+[Learn more](https://create.roblox.com/docs/reference/engine/classes/RBXScriptSignal)
 ]]--
 export type StrictRBXScriptSignal<Variant... = ...any> = {
 	--[[--
-	Connects the given function to the event and returns an [RBXScriptConnection](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptConnection) that represents it.
+	Connects the given function to the event and returns an [RBXScriptConnection](https://create.roblox.com/docs/reference/engine/classes/RBXScriptConnection) that represents it.
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptSignal#Connect)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RBXScriptSignal#Connect)
 	]]--
 	Connect: (StrictRBXScriptSignal<Variant...>, func: (Variant...) -> ()) -> RBXScriptConnection,
 
 	--[[--
-	Connects the given function to the event and returns an [RBXScriptConnection](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptConnection) that represents it.
+	Connects the given function to the event and returns an [RBXScriptConnection](https://create.roblox.com/docs/reference/engine/classes/RBXScriptConnection) that represents it.
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptSignal#ConnectParallel)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RBXScriptSignal#ConnectParallel)
 	]]--
 	ConnectParallel: (StrictRBXScriptSignal<Variant...>, func: (Variant...) -> ()) -> RBXScriptConnection,
 
 	--[[--
-	Connects the given function to the event (for a single invocation) and returns an [RBXScriptConnection](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptConnection) that represents it.
+	Connects the given function to the event (for a single invocation) and returns an [RBXScriptConnection](https://create.roblox.com/docs/reference/engine/classes/RBXScriptConnection) that represents it.
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptSignal#Once)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RBXScriptSignal#Once)
 	]]--
 	Once: (StrictRBXScriptSignal<Variant...>, func: (Variant...) -> ()) -> RBXScriptConnection,
 
 	--[[--
 	Yields the current thread until the signal fires and returns the arguments provided by the signal.
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RBXScriptSignal#Wait)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RBXScriptSignal#Wait)
 	]]--
 	Wait: (StrictRBXScriptSignal<Variant...>) -> (Variant...),
 }
@@ -51,20 +51,20 @@ bindableEvent.Event:Connect(onEvent)
 bindableEvent:Fire("Hello, world")
 ```
 
-[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/BindableEvent)
+[Learn more](https://create.roblox.com/docs/reference/engine/classes/BindableEvent)
 ]]--
 export type StrictBindableEvent<Variant... = ...any> = {
 	--[[--
 	The event that is fired when [Fire](https://create.roblox.com/docs/reference/engine/classes/BindableEvent#Fire) is called.
 
-    [Learn more](https://create.roblox.com/docs/reference/engine/datatypes/BindableEvent#Event)
+    [Learn more](https://create.roblox.com/docs/reference/engine/classes/BindableEvent#Event)
     ]]--
 	Event: StrictRBXScriptSignal<Variant...>,
 
 	--[[--
 	Fires the [BindableEvent](https://create.roblox.com/docs/reference/engine/classes/BindableEvent), which fires the [BindableEvent.Event](https://create.roblox.com/docs/reference/engine/classes/BindableEvent#Event) event.
 
-    [Learn more](https://create.roblox.com/docs/reference/engine/datatypes/BindableEvent#Fire)
+    [Learn more](https://create.roblox.com/docs/reference/engine/classes/BindableEvent#Fire)
     ]]--
 	Fire: (StrictBindableEvent<Variant...>, Variant...) -> ()
 } & Instance
@@ -87,20 +87,20 @@ bindableFunction.OnInvoke = AddTwoNumbers
 print(bindableFunction:Invoke(25, 44))
 ```
 
-[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/BindableFunction)
+[Learn more](https://create.roblox.com/docs/reference/engine/classes/BindableFunction)
 ]]--
 export type StrictBindableFunction<A... = ...any, R... = ...any> = {
 	--[[--
 	Callback for when the [BindableFunction](https://create.roblox.com/docs/reference/engine/classes/BindableFunction) is invoked with [BindableFunction:Invoke()](https://create.roblox.com/docs/reference/engine/classes/BindableFunction#OnInvoke).
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/BindableFunction#OnInvoke)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/BindableFunction#OnInvoke)
 	]]--
 	OnInvoke: (A...) -> (R...),
 
 	--[[--
 	Calls the [BindableFunction.OnInvoke](https://create.roblox.com/docs/reference/engine/classes/BindableFunction#OnInvoke) callback of the [BindableFunction](https://create.roblox.com/docs/reference/engine/classes/BindableFunction), returning any values returned by the callback.
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/BindableFunction#Invoke)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/BindableFunction#Invoke)
 	]]--
 	Invoke: (StrictBindableFunction<A..., R...>, A...) -> (R...)
 } & Instance
@@ -126,41 +126,41 @@ end
 createPartEvent.OnServerEvent:Connect(onCreatePartFired)
 ```
 
-[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteEvent)
+[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent)
 ]]--
 export type StrictRemoteEvent<Variant... = ...any> = {
 	--[[--
 	Fires listening functions in [LocalScript](https://create.roblox.com/docs/reference/engine/classes/LocalScript) when either [RemoteEvent:FireClient()](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#FireClient) or [RemoteEvent:FireAllClients()](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#FireAllClients) is called from a [Script](https://create.roblox.com/docs/reference/engine/classes/Script).
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteEvent#OnClientEvent)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#OnClientEvent)
 	]]--
 	OnClientEvent: StrictRBXScriptSignal<Variant...>,
 
 	--[[--
 	Fires listening functions in [Script](https://create.roblox.com/docs/reference/engine/classes/Script) when [RemoteEvent:FireServer()](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#FireServer) is called from a [LocalScript](https://create.roblox.com/docs/reference/engine/classes/LocalScript).
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteEvent#OnServerEvent)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#OnServerEvent)
 	]]--
 	OnServerEvent: StrictRBXScriptSignal<(Player, Variant...)>,
 
 	--[[--
 	Fires the [RemoteEvent.OnClientEvent](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#OnClientEvent) event for each client.
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteEvent#FireAllClients)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#FireAllClients)
 	]]--
 	FireAllClients: (StrictRemoteEvent<Variant...>, Variant...) -> (),
 
 	--[[--
 	Fires [RemoteEvent.OnClientEvent](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#OnClientEvent) for the specified player.
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteEvent#FireClient)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#FireClient)
 	]]--
 	FireClient: (StrictRemoteEvent<Variant...>, player: Player, Variant...) -> (),
 
 	--[[
 	Fires the [RemoteEvent.OnServerEvent](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#OnServerEvent) event on the server using the arguments specified with an additional player argument at the beginning.
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteEvent#FireServer)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#FireServer)
 	]]--
 	FireServer: (StrictRemoteEvent<Variant...>, Variant...) -> (),
 } & Instance
@@ -183,34 +183,34 @@ bindableFunction.OnInvoke = AddTwoNumbers
 print(bindableFunction:Invoke(25, 44))
 ```
 
-[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteFunction)
+[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction)
 ]]--
 export type StrictRemoteFunction<A... = ...any, R... = ...any> = {
 	--[[--
 	Calls the function bound to the [RemoteFunction](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction) by [RemoteFunction.OnClientInvoke](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction#OnClientInvoke) for the given [Player](https://create.roblox.com/docs/reference/engine/classes/Player). Use only in a [Script](https://create.roblox.com/docs/reference/engine/classes/Script).
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteFunction#InvokeClient)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction#InvokeClient)
 	]]--
 	InvokeClient: (StrictRemoteFunction<A..., R...>, player: Player, A...) -> (R...),
 
 	--[[--
 	Calls the function bound to the [RemoteFunction](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction) by [RemoteFunction.OnServerInvoke](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction#OnServerInvoke) and returns what that function returns. Use only in a [LocalScript](https://create.roblox.com/docs/reference/engine/classes/LocalScript).
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteFunction#InvokeServer)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction#InvokeServer)
 	]]--
 	InvokeServer: (StrictRemoteFunction<A..., R...>, A...) -> (R...),
 
 	--[[--
 	Called when the client is invoked by [RemoteFunction:InvokeClient()](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction#InvokeClient).
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteEvent#OnClientEvent)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#OnClientEvent)
 	]]--
 	OnClientInvoke: (A...) -> (R...),
 
 	--[[--
 	Called when the server is invoked by [RemoteFunction:InvokeServer()](https://create.roblox.com/docs/reference/engine/classes/RemoteFunction#InvokeServer).
 
-	[Learn more](https://create.roblox.com/docs/reference/engine/datatypes/RemoteEvent#OnServerEvent)
+	[Learn more](https://create.roblox.com/docs/reference/engine/classes/RemoteEvent#OnServerEvent)
 	]]--
 	OnServerInvoke: (player: Player, A...) -> (R...)
 } & Instance
